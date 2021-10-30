@@ -14,7 +14,7 @@ Arbeiten mit Konsolenbefehlen
                |          |          |             |             | postgres=CTc/postgres
     (3 rows)
 
-oder ohne vorherigen Login mit "***sudo -u postgres psql -l***"
+oder ohne vorherigen Login mit "***postgres psql -l***"
 
 ### Benutzer auflisten
 
