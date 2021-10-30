@@ -24,12 +24,26 @@ oder ohne vorherigen Login mit "***postgres psql -l***"
     -----------+------------------------------------------------+-----------
      postgres  | Superuser, Create role, Create DB, Replication | {}
      yolo      | Superuser                                      | {}
+     
+### Benutzer anlegen
+
+Damit man sich (mit der Standardauthentifizierung) an der Datenbank anmelden kann, ist es nicht ratsam, den Datenbanksuperuser (postgres) zu verwenden. Es ist daher ratsam, einen extra Benutzer hierfür anzulegen, dies ist mit folgendem Befehl möglich:
+
+    postgres createuser -P -d NUTZERNAME 
+
+Das -P als Schalter für createuser ist erforderlich, da PostgreSQL sonst nicht nach einem Passwort für den neuen Benutzer fragen würde.
+
+Das -d als Schalter für createuser ist erforderlich, wenn der Benutzer Datenbanken anlegen können soll.
+
+### Datenbank anlegen
+
+ Für jede Anwendung, die man benötigt, ist in der Regel eine eigene Datenbank erforderlich. Diese kann in einem Terminal [2] wie folgt angelegt werden:
+
+    postgres createdb -O NUTZERNAME DATENBANK
 
 ### Zu einer Datenbank verbinden
 
-    postgres=#\c Datenbankname
-
-    You are now connected to database "Datenbankname" as user "postgres".
+    postgres=#\c test
 
 ### Tabellen anzeigen
 
